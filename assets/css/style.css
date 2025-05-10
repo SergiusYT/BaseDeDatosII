@@ -1,0 +1,122 @@
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+
+.validate-Error{
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+
+
+
+a{
+    font-size:11px;
+}
+
+
+
+.text-size{
+    font-size:15px;
+}
+
+.btn-icon-split {
+    padding:0;
+    overflow:hidden;
+    display:inline-flex;
+    align-items:stretch;
+    justify-content:center
+}
+
+.btn-icon-split .icon {
+    background:rgba(0,0,0,.15);
+    display:inline-block;
+    padding:.375rem .75rem;
+}
+
+
+.text-padding{
+    padding:7px;
+}
+
+
+.borrarinputfile {
+    border-radius: 5px;
+	font-size:13px; 
+	font-weight:300;
+    color: #999;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.label-image{
+    margin-bottom: 0px;
+    padding: 8px 20px;
+    width:500px;
+}
+
+.inputfile + .label-image {
+    max-width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+
+
+.inputfile-1 + .label-image {
+    color: #fff;
+    background-color: #efeff6;
+
+}
+
+.inputfile-1:focus + .label-image
+.inputfile-1.has-focus + .label-image,
+.inputfile-1 + .label-image:hover {
+    background-color:#efeff6;
+}
+
+
+
+
+.img-100{
+    width: 60%;
+}
+
+
+.reloj{
+    letter-spacing:1px;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.ampm{
+    font-size:10px;
+    display:inline-block;
+}
+
+.text-white{
+    color:rgb(255, 255, 255);
+}
+
