@@ -129,7 +129,7 @@
                         $pdf->AliasNbPages();
                         $pdf->AddPage();
                         $pdf->SetTitle('Reporte | Detalle Nomina');
-                        $pdf->renderHeader('W@SECURITY','RUC:0914431192001 | Telefono:098-384-9713','./assets/images/logo-wosecurity.png',13,15,40);
+                        $pdf->renderHeader('NomiCore','Telefono:351-354-9511','./assets/images/Logo_V2.png',13,15,40);
                         
                         $pdf->SetY(70);
                         $pdf->SetFont('Arial', 'B', 13);
@@ -191,7 +191,7 @@
                             if ($cont == 15){
                                 $pdf->AddPage();
                                 $pdf->SetTitle('Reporte | Detalle Nomina');
-                                $pdf->renderHeader('W@SECURITY','RUC:0914431192001 | Telefono:098-384-9713','./assets/images/logo-wosecurity.png',13,15,40);
+                                $pdf->renderHeader('NomiCore','Telefono:351-354-9511','./assets/images/Logo_V2.png',13,15,40);
                                 $y = $pdf->GetY() + 8;
                                 $pdf->SetXY(2, $y);
                                 $cont =1;
@@ -530,7 +530,7 @@
             }else{
                 $id_detalle_nomina = strclean($_POST['id_detalle_nomina']);
                 $meses = Intval(strclean($_POST['meses']));
-                $total = Intval(strclean($_POST['total']));
+                $total = Intval(value: strclean($_POST['total']));
                 $response_data = $this->model->updateDetalleMesesTotal($id_detalle_nomina,$meses,$total);
                 if($response_data =="ok"){
                     $data = array('status' => true,'msg' => 'todo correctamente');

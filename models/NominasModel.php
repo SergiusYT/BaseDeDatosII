@@ -191,20 +191,50 @@
             $request_update_nomina = $this->update_sql($sql_update_nomina,$data_nomina);
         }
 
-        public function updateDetalleMesesTotal(string $id_detalle_nomina,int $int_meses_nomina,int $int_total_pagar){
+        public function updateDetalleMesesTotal(string $id_detalle_nomina, int $int_meses_nomina, int $int_total_pagar){
             $this->int_id_detalle_nomina = $id_detalle_nomina;
             $this->int_meses_nomina = $int_meses_nomina;
             $this->int_total_pagar = $int_total_pagar;
-            $sql_update = "UPDATE detalle_nomina SET meses = ? ,valor_total = ? WHERE id_detalle_nomina = $this->int_id_detalle_nomina";
-            $data_total = array($this->int_meses_nomina,$this->int_total_pagar);
-            $request_update_total =  $this->update_sql($sql_update,$data_total);
-            if ($request_update_total ){
+
+            // Sueldo mensual (asumiendo total dividido por meses)
+            $sueldo_mensual = $this->int_total_pagar / $this->int_meses_nomina;
+
+            // ➖ Deducciones legales mensuales
+            $salud = $sueldo_mensual * 0.04;
+            $pension = $sueldo_mensual * 0.04;
+
+            // 🧮 Deducciones acumuladas
+            $total_deducciones = ($salud + $pension) * $this->int_meses_nomina;
+
+            // ➕ Auxilio transporte mensual (si aplica)
+            $auxilio_transporte = 0;
+            if ($sueldo_mensual <= 2600000){
+                $auxilio_transporte = 162000 * $this->int_meses_nomina;
+            }
+
+            // ➕ Fondo de solidaridad si gana más de 4 SMMLV (sobre sueldo mensual)
+            $fondo_solidaridad = 0;
+            if($sueldo_mensual > 5200000){
+                $fondo_solidaridad = $sueldo_mensual * 0.01 * $this->int_meses_nomina;
+                $total_deducciones += $fondo_solidaridad;
+            }
+
+            // ✅ Total neto
+            $total_neto = $this->int_total_pagar - $total_deducciones + $auxilio_transporte;
+
+            // 🧾 Actualizar BD
+            $sql_update = "UPDATE detalle_nomina SET meses = ?, valor_total = ? WHERE id_detalle_nomina = $this->int_id_detalle_nomina";
+            $data_total = array($this->int_meses_nomina, $total_neto);
+            $request_update_total = $this->update_sql($sql_update, $data_total);
+
+            if ($request_update_total){
                 $request_update_total = 'ok';
-            }else{
+            } else {
                 $request_update_total = 'error';
             }
             return $request_update_total;
         }
+
 
 
         public function updateNominaTotal(int $int_id_nomina, int $int_total_pagar){
