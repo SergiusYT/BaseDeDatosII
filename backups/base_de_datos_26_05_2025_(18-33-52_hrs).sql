@@ -63,8 +63,10 @@ CREATE TABLE `empleados` (
   KEY `fk_puesto` (`id_puesto`),
   CONSTRAINT `fk_contrato` FOREIGN KEY (`id_contrato`) REFERENCES `contratos` (`id_contrato`),
   CONSTRAINT `fk_puesto` FOREIGN KEY (`id_puesto`) REFERENCES `puestos` (`id_puesto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO empleados VALUES("1","Juan Esteban","Guerrero Llanos","1000381103","(310) 561-5122","2000000","2","2025-05-26 17:16:25","2","1","2025-05-26 17:16:25");
+INSERT INTO empleados VALUES("2","Jayder Andrés","Cordero Albarracin","6845256666","(310) 225-6231","1400000","1","2025-05-26 17:29:45","1","1","2025-05-26 17:39:19");
 
 
 
@@ -124,7 +126,7 @@ CREATE TABLE `permisos` (
   KEY `fk_rol` (`id_rol`),
   CONSTRAINT `fk_modulo` FOREIGN KEY (`id_modulo`) REFERENCES `modulos` (`id_modulo`),
   CONSTRAINT `fk_rol` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO permisos VALUES("1","1","1","1","1","1","1");
 INSERT INTO permisos VALUES("2","2","1","1","1","1","1");
@@ -134,6 +136,14 @@ INSERT INTO permisos VALUES("5","5","1","1","1","1","1");
 INSERT INTO permisos VALUES("6","6","1","1","1","1","1");
 INSERT INTO permisos VALUES("7","7","1","1","1","1","1");
 INSERT INTO permisos VALUES("8","8","1","1","1","1","1");
+INSERT INTO permisos VALUES("17","1","2","0","0","0","0");
+INSERT INTO permisos VALUES("18","2","2","0","0","0","0");
+INSERT INTO permisos VALUES("19","3","2","0","0","0","0");
+INSERT INTO permisos VALUES("20","4","2","0","0","0","0");
+INSERT INTO permisos VALUES("21","5","2","1","0","0","0");
+INSERT INTO permisos VALUES("22","6","2","0","0","0","0");
+INSERT INTO permisos VALUES("23","7","2","0","0","0","0");
+INSERT INTO permisos VALUES("24","8","2","0","0","0","0");
 
 
 
@@ -147,9 +157,11 @@ CREATE TABLE `puestos` (
   `fecha_crea` datetime DEFAULT NULL,
   `fecha_modifica` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_puesto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO puestos VALUES("1","Dueño","El Dueño Y Gerente De La Empresa","1","2025-05-26 12:57:59","2025-05-26 13:07:23");
+INSERT INTO puestos VALUES("2","Celador","Personal De Vigilancia En La Empresa","1","2025-05-26 17:15:23","2025-05-26 17:15:23");
+INSERT INTO puestos VALUES("3","Personal De Aseo","Personas Encargadas De Oficios Variados","1","2025-05-26 17:27:20","2025-05-26 17:27:20");
 
 
 
@@ -190,7 +202,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO usuarios VALUES("1","Sergio Andres","Lozano Bueno","user-default.png","sergio","salozanob@unbosque.edu.co","1","$2y$10$HwDTMhcBuUFzbfkpBG36.OB0deecjl53A/i3xfVKyu3O8HQgLz5pa","1","2025-05-26 13:02:42","2025-05-26 13:02:42");
-INSERT INTO usuarios VALUES("2","Sebastian","Lopez","1748283580_usuario1.png","sebas","sebastian@unbosque.edu.co","1","$2y$10$y.T4QtEaooPpHDd/cn3u0eXeNWFSiPQlSZ9mSYgbW32dfILMNCIDm","0","2025-05-26 13:19:40","2025-05-26 13:22:18");
+INSERT INTO usuarios VALUES("2","Sebastian","Lopez","1748290077_1748283726_usuario1.png","sebas","sebastian@unbosque.edu.co","1","$2y$10$y.T4QtEaooPpHDd/cn3u0eXeNWFSiPQlSZ9mSYgbW32dfILMNCIDm","0","2025-05-26 13:19:40","2025-05-26 15:07:58");
 INSERT INTO usuarios VALUES("3","Juan Esteban","Guerrero Llanos","1748283931_Juan.jpg","juanes","juan@unbosque.edu.co","2","$2y$10$dF196dkGOhL4byKOFfA42OR7X4XcMRb9LH7CAPr6F9qmFOrRK8Gpq","1","2025-05-26 13:25:31","2025-05-26 13:25:31");
 
 
