@@ -18,15 +18,12 @@
             parent::__construct();
         }
 
+        //Funcion con un Procedimiento Almacenado
+
         public function selectNominasReporte(){
-            $sql = "SELECT nom.id_nomina,
-            nom.nombre_nomina,
-            nom.periodo_inicio,
-            nom.periodo_fin,
-            nom.estado_nomina,
-            nom.total
-            FROM nominas as nom WHERE nom.estado !=0" ;
+            $sql = "CALL getNominasReporte()";
             $request = $this->select_sql_all($sql);
+
             return $request;
         }
 

@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    build: .
+    container_name: nominas_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    networks:
+      - nominas_net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: nominas_phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    depends_on:
+      - db
+    networks:
+      - nominas_net
+
+networks:
+  nominas_net:
+    driver: bridge
