@@ -6,7 +6,6 @@
       </div>
       <div class="modal-body">
         <form id="formContrato" name="formContrato">
-          <input id="csrf" name="csrf" type="hidden" value="<?php echo $data["csrf"]; ?>">
             <div class="card-body row">
                     <input type="hidden" id="id_contrato" name="id_contrato" value="">
                     <div class="col-md-10 mb-3">

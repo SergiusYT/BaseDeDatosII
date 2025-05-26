@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',function(){
  */
 const base_url = "http://localhost/sistema-control-nominas/";
 const base_url_image = "http://localhost/sistema-control-nominas/assets/images/";
-const regex_string = '^[a-zA-ZáéíóñÁÉÍÓÚÑ ]+$';
+const regex_string = /^[a-zA-ZÁÉÍÓÚáéíóúñÑ0-9.,:;()\-\s"]+$/;
 const regex_numbers = '^[0-9]+$';
 const regex_fechas = '^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$';
 const regex_username_password = '^[a-zA-Z0-9_-]{4,18}$';

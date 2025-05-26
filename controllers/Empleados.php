@@ -34,7 +34,7 @@
                 $pdf->AliasNbPages();
                 $pdf->AddPage();
                 $pdf->SetTitle('Reporte | Empleados');
-                $pdf->renderHeader('W@SECURITY','RUC:0914431192001 | Telefono:098-384-9713','./assets/images/logo-wosecurity.png',13,15,40);
+                $pdf->renderHeader('NomiCore','Telefono:351-354-9511','./assets/images/Logo_V2.png',13,15,40);
                 $pdf->renderText('Listado | Empleados');
                 $pdf->SetFont('arial', '', 10);
                 $y = $pdf->GetY() + 8;

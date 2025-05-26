@@ -9,3 +9,8 @@ COPY ./database/nominas_bd.sql /docker-entrypoint-initdb.d/
 
 # Ajustar permisos
 RUN chmod 644 /docker-entrypoint-initdb.d/nominas_bd.sql
+
+
+# Configurar zona horaria del sistema (EST o -05:00)
+RUN ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime && \
+    echo "America/Bogota" > /etc/timezone

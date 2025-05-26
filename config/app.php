@@ -2,7 +2,7 @@
     const server_url = "http://localhost/sistema-control-nominas/";
     const server_url_image = "http://localhost/sistema-control-nominas/assets/images/";
 
-    const regex_string = '/^[a-zA-ZáéíóñÁÉÍÓÚÑ, ]+$/';
+    const regex_string = '/^[a-zA-ZÁÉÍÓÚáéíóúñÑ0-9.,:;()\-\s"]+$/';
     const regex_email = '/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/';
     const regex_numbers = '/^[0-9]+$/';
     const regex_username = '/^[a-z0-9_-]{3,16}$/';
