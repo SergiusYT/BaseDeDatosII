@@ -40,7 +40,10 @@
                 if ($data[$i]['foto'] == 'avatar-2.jpg'){
                     $data[$i]['foto'] = '<div class="m-r-10"><img src="'.server_url_image.$data[$i]['foto'].'"  class="rounded" width="45"></div>';
                 }else{
-                    $data[$i]['foto'] = '<div class="m-r-10"><img src="'.server_url_image.$data[$i]['foto'].'"  class="rounded" width="45"></div>';
+                    $foto = $data[$i]['foto'];
+$version = time(); // Esto cambia cada vez que se recarga
+$data[$i]['foto'] = '<div class="m-r-10"><img src="'.server_url_image.$foto.'?v='.$version.'" class="rounded" width="45"></div>';
+
                 }
 
                 if ($data[$i]['estado'] == 1){
