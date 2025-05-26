@@ -285,34 +285,6 @@ DELIMITER ;
 
 
 
--- PROCEDIMIENTOS ALMACENADOS, FUNCIONES Y TRIGGER lOGIN
-
-DELIMITER $$
-DROP PROCEDURE IF EXISTS sp_login_user$$
-CREATE PROCEDURE sp_login_user(IN p_username VARCHAR(50))
-BEGIN
-    SELECT id_usuario, password, estado
-    FROM usuarios
-    WHERE usuario = p_username;
-END$$
-DELIMITER ;
-
-
-
-DELIMITER $$
-DROP PROCEDURE IF EXISTS sp_session_login$$
-CREATE PROCEDURE sp_session_login(IN p_id_usuario INT)
-BEGIN
-    SELECT us.id_usuario, us.nombre, us.apellido, us.foto, us.usuario, us.email,
-           r.id_rol, r.nombre_rol, us.estado 
-    FROM usuarios us
-    INNER JOIN roles r ON us.id_rol = r.id_rol
-    WHERE us.id_usuario = p_id_usuario;
-END$$
-DELIMITER ;
-
-
-
 
 
 --PROCEDIMIENTO ALMACENADO NOMINA
